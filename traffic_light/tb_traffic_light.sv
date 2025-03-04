@@ -12,9 +12,7 @@ module tb_traffic_light;
 
   // Kết nối DUT
   traffic_light dut (
-    .clk(tif.clk),
-    .reset(tif.reset),
-    .light_ns(tif.light_ns)
+    tif.dut
   );
 
   // Class để tạo dữ liệu ngẫu nhiên
