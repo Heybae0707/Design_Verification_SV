@@ -13,10 +13,4 @@ interface spi_if (
         input clk, reset, dataIn,
         output spi_CS, spi_sclk, spiData, counter
     );
-
-    // Modport cho Testbench
-    modport TB (
-        input clk, spi_CS, spi_sclk, spiData, counter,
-        output reset, dataIn
-    );
 endinterface
