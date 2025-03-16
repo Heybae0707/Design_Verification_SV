@@ -11,10 +11,4 @@ interface ram_if (
         input clk, wea, web, addra, addrb, dina, dinb,
         output douta, doutb
     );
-
-    // Modport cho Testbench
-    modport TB (
-        input clk, douta, doutb,
-        output wea, web, addra, addrb, dina, dinb
-    );
 endinterface
