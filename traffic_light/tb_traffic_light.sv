@@ -48,8 +48,4 @@ module tb_traffic_light;
 	  $finish;
   end
 
-  // Final block để báo cáo kết quả
-  final begin
-    $display("Simulation ended at time %0t", $time);
-  end
 endmodule
