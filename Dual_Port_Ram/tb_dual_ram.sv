@@ -30,7 +30,7 @@ module tb_dual_ram;
         rand bit [1:0] addra, addrb; // Random addresses
         rand bit [3:0] dina, dinb;   // Random data inputs cho Port A và Port B
 
-        // Ràng buộc để tăng tính thú vị trong kiểm tra
+ 
         constraint addr_c {
             addra dist {2'b00:/25, 2'b01:/25, 2'b10:/25, 2'b11:/25}; // Phân bố đều địa chỉ
             addrb dist {2'b00:/25, 2'b01:/25, 2'b10:/25, 2'b11:/25};
@@ -64,7 +64,7 @@ module tb_dual_ram;
         // Chạy 10 trường hợp kiểm tra ngẫu nhiên
         repeat (5) begin
             assert(test.randomize()) else $fatal("Tạo dữ liệu ngẫu nhiên thất bại!");
-            test.inKetQua(); // In dữ liệu ngẫu nhiên để kiểm tra
+		test.inKetQua(); // In dữ liệu ngẫu nhiên để kiểm tra co hoac khong
 
             // Gán dữ liệu ngẫu nhiên với blocking assignments
             ram_if_inst.wea = test.wea;
