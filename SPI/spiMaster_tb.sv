@@ -29,7 +29,7 @@ module spiMaster_tb;
     class SpiTest;
         rand bit [15:0] rand_dataIn;
 
-        // Ràng buộc để đảm bảo dữ liệu đa dạng
+        
         constraint data_c {
             rand_dataIn dist {0:/20, [1:16'hFFFE]:/60, 16'hFFFF:/20};
         }
@@ -57,7 +57,7 @@ module spiMaster_tb;
             spi_if_inst.dataIn = test.rand_dataIn; // Blocking
 
             // Chờ giao dịch SPI hoàn tất (310ns= 31 chu ky) nhưng chúng ta có thể truyền data vào bất cứ lúc nào
-            repeat (30) @(posedge clk);
+            repeat (33) @(posedge clk);
 
             // Hiển thị kết quả đầu ra
             $display("[%0t]: spi_CS=%b | spi_sclk=%b | spiData=%b | counter=%0d",
