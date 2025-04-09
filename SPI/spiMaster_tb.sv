@@ -19,7 +19,7 @@ module spiMaster_tb;
         .counter(spi_if_inst.counter)
     );
 
-    // Tạo xung clock (chu kỳ 5ns -> 200 MHz)
+    // Tạo xung clock (chu kỳ 10ns -> 100 MHz)
     initial begin
         clk = 0;
         forever #5 clk = ~clk; // Chu kỳ clock 5ns
@@ -56,7 +56,7 @@ module spiMaster_tb;
             // Gán dữ liệu ngẫu nhiên vào dataIn với blocking assignment
             spi_if_inst.dataIn = test.rand_dataIn; // Blocking
 
-            // Chờ giao dịch SPI hoàn tất (310ns= 31 chu ky) nhưng chúng ta có thể truyền data vào bất cứ lúc nào
+       
             repeat (33) @(posedge clk);
 
             // Hiển thị kết quả đầu ra
