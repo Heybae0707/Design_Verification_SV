@@ -18,7 +18,7 @@ module tb_traffic_light;
   // Class để tạo dữ liệu ngẫu nhiên
   class TrafficStimulus;
     rand bit reset;
-    constraint reset_prob { reset dist {0:/90, 1:/10}; } // Reset có xác suất 20%
+	  constraint reset_prob { reset dist {0:/90, 1:/10}; } // Reset có xác suất 10%
   endclass
 
   // Testbench logic
