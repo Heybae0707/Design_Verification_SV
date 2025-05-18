@@ -4,7 +4,7 @@
 module spiMaster_tb;
     // Tín hiệu
     logic clk;
-
+    bit [5:0] count_repeat;//delay_input
     // Khởi tạo interface
     spi_if spi_if_inst (.clk(clk));
 
@@ -43,6 +43,7 @@ module spiMaster_tb;
     initial begin
         SpiTest test;
         test = new();
+        count_repeat=34;
         spi_if_inst.reset = 1'b1;
         spi_if_inst.dataIn = 16'b0; 
         repeat (2) @(posedge clk); // Chờ 2 chu kỳ clock
@@ -57,8 +58,8 @@ module spiMaster_tb;
             spi_if_inst.dataIn = test.rand_dataIn; // Blocking
 
        
-            repeat (33) @(posedge clk);
-
+            repeat (count_repeat) @(posedge clk);
+            count_repeat=33;
             // Hiển thị kết quả đầu ra
             $display("[%0t]: spi_CS=%b | spi_sclk=%b | spiData=%b | counter=%0d",
                      $time, spi_if_inst.spi_CS, spi_if_inst.spi_sclk,
