@@ -48,7 +48,7 @@ module spiMaster_tb;
         spi_if_inst.dataIn = 16'b0; 
         repeat (2) @(posedge clk); // Chờ 2 chu kỳ clock
         spi_if_inst.reset = 1'b0; // Tắt reset
-
+        #20;
         // Chạy 5 trường hợp
         repeat (5) begin
             assert(test.randomize()) else $fatal("Tạo dữ liệu ngẫu nhiên thất bại!");
