@@ -53,11 +53,7 @@ module spiMaster_tb;
         repeat (5) begin
             assert(test.randomize()) else $fatal("Tạo dữ liệu ngẫu nhiên thất bại!");
             test.inKetQua();
-
-            // Gán dữ liệu ngẫu nhiên vào dataIn với blocking assignment
-            spi_if_inst.dataIn = test.rand_dataIn; // Blocking
-
-       
+            spi_if_inst.dataIn = test.rand_dataIn; 
             repeat (count_repeat) @(posedge clk);
             count_repeat=33;
             // Hiển thị kết quả đầu ra
