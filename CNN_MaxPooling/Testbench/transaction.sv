@@ -5,7 +5,6 @@ class transaction;
   bit valid_out;
   logic signed [24-1:0]  out_data [1][4][4];
   constraint inValid {valid_in ==1;}
-  constraint reset {rst_n ==1;}
   constraint inData { 
     foreach(in_data[c,h,w]) {
       in_data[c][h][w] >=0;
