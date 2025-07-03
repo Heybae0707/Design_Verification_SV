@@ -7,7 +7,7 @@ module spiMaster(
 	output wire spiData,
 	output [4:0] counter
 );
-reg [15:0] MOSI;
+reg MOSI;
 reg [4:0] count;
 reg cs;
 reg sclk;
