@@ -16,7 +16,7 @@ reg [2:0] state;
 always @(posedge clk or posedge reset)
 	if(reset)
 	begin
-		MOSI <=16'b0;
+		MOSI <=0;
 		count <= 5'd16;
 		cs <=1'b1;
 		sclk <=1'b0;
